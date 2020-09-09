@@ -26,13 +26,13 @@ namespace Popular_Toppings.Service
 
         public void OutputResult()
         {
-            int i = 1;
-            string str = "Rank: {0, 4} \t Times Ordered: {1, 5} \t Toppings: {2} ";
+            int rank = 1;
+            string sample = "Number {0} Topping \t: {1}(was ordered {2} times)";
 
             foreach (PizzaToppingCombinations combo in _topPopularToppings)
             {
-                Console.WriteLine(String.Format(str, i, combo.count, combo.toppings));
-                i++;
+                Console.WriteLine(String.Format(sample, rank, combo.toppings, combo.count));
+                rank++;
             }
         }
     }

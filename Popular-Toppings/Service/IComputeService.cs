@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Popular_Toppings.Service
 {
-    interface IComputeService
+    public interface IComputeService
     {
         IEnumerable<PizzaToppingCombinations> GetAllToppings();
         IEnumerable<PizzaToppingCombinations> GetPopularToppings(IEnumerable<PizzaToppingCombinations> pizzaCombinations, int topCombinations);

@@ -17,6 +17,7 @@ namespace Popular_Toppings
             {
                 IComputeService service = new ComputeService(DataLoadService.Pizzas);
                 ResultService result = new ResultService(service);
+                // Pass how many top results you want to see 
                 result.ComputeResult(20);
                 result.OutputResult();
             }

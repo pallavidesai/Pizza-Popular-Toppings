@@ -18,13 +18,14 @@ namespace Popular_Toppings.Service
 
         public IEnumerable<PizzaToppingCombinations> GetAllToppings()
         {
-            var orderedPizzaToppings = _pizzas.Select(p => p.Toppings.OrderBy(t => t));
+            // Order toppings in each pizza object 
+            var orderedToppings = _pizzas.Select(p => p.Toppings.OrderBy(t => t));
 
-            // Aggregate toppings list into a comma delimited string
-            IEnumerable<string> aggregatedToppings = orderedPizzaToppings.Select((toppings => toppings.Aggregate((x, y) => x + "," + y)));
+            // convert toppings list into a comma separated string
+            var commaSeparatedToppings = orderedToppings.Select((toppings => toppings.Aggregate((m, n) => m + "," + n)));
 
-            // Group toppings and get counts of each
-            IEnumerable<PizzaToppingCombinations> groupedToppings = aggregatedToppings
+            // Group and count toppings
+            var groupedToppings = commaSeparatedToppings
                 .GroupBy(toppingsGroup => toppingsGroup)
                 .Select(toppingsGroup => new PizzaToppingCombinations()
                 {
@@ -37,7 +38,7 @@ namespace Popular_Toppings.Service
 
         public IEnumerable<PizzaToppingCombinations> GetPopularToppings(IEnumerable<PizzaToppingCombinations> pizzaCombinations, int topCombinations)
         {
-            return pizzaCombinations.OrderByDescending(ag => ag.count).Take(topCombinations);
+            return pizzaCombinations.OrderByDescending(x => x.count).Take(topCombinations);
         }
     }
 }
