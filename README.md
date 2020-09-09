@@ -1,16 +1,17 @@
 # Pizza-Popular-Toppings
 
 ### This is a small application that let restaurant clients know which pizza topping combinations are the most popular.
-### This appication output which are top topping combinations 
+### This application output which is top topping combinations 
 
 ## Implementation details
 
 * Application is implemented using C# .Net 4.6
+* This is console application that writes the output to the terminal 
 
 ### Reading JSon Data:
 
 * DataLoadService does load data into models 
-* Json is deserialized using Newtonsoft.Json
+* JSON is deserialized using Newtonsoft.Json
 
 ### Model 
 
@@ -19,7 +20,7 @@
 2) PizzaToppingCombinations
 
 
-### Service in application
+### Service in the application
 
 *  IComputeService is interface 
 *  ComputeService implements IComputeService 
@@ -38,7 +39,8 @@
 ## Input / Output
 
 * Output for requested questions 
-https://github.com/pallavidesai/Pizza-Popular-Toppings/blob/master/documents/Result.PNG
+![](https://github.com/pallavidesai/Pizza-Popular-Toppings/blob/master/documents/Result.PNG)
+
 
 
 
